@@ -1,0 +1,17 @@
+---
+# Run with ansible-playbook <filename> -k
+# ansible-playbook setups/tasks/01_nginx_setup.yml -i 10.0.3.168,
+# (make sure ip address is added to the hosts file before running command)
+- hosts: all
+  vars:
+    # used for filepaths
+    site_name: "tutorialinux"
+    site_title: "Hope."
+    site_url: "www.tutorialinux.com"
+
+  tasks:
+    - name: Install Nginx
+      package: name=nginx state=latest
+
+    - name: Create website directory
+      file: path="/var/www/{{ site_name }}" state=directory mode=0755

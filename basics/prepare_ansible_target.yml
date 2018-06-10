@@ -1,0 +1,20 @@
+---
+# Run with ansible-playbook <filename> -k
+# ansible-playbook basics/prepare_ansible_target.yml -i 10.0.3.168, -u ubuntu -k --ask-sudo-pass
+# (make sure ip address is added to the hosts file before running command)
+
+- hosts: all
+  gather_facts: False
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  become_method: sudo
+
+  tasks:
+    - name: Install Python 2
+      raw: test -e /usr/bin/python || (apt update && apt install -y python-minimal)
+
+    - name: Fancy way of doing authorized_keys
+      authorized_key: user=root
+                      exclusive=no
+                      key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

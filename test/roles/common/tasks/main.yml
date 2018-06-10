@@ -1,0 +1,10 @@
+---
+- name: COMMON | Install basic packages required for all machines
+  package: name={{ item }} state=present
+  with_items:
+    - wget
+    - vim
+    - nano
+    - curl
+    - htop
+    - zip
