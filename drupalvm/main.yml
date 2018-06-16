@@ -1,0 +1,7 @@
+---
+- hosts: all
+  name: Database setup
+  remote_user: root
+  roles:
+    - common
+    - database

@@ -1,0 +1,7 @@
+---
+mysql_user_name: lasalle
+mysql_user_password: L@ssalle2018
+mysql_root_username: root
+mysql_root_password: MySQL
+mysql_packages:
+  - mysql-server
