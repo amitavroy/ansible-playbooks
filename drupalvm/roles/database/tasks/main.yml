@@ -1,18 +1,4 @@
 ---
-- name: DATABASE | Install database packages
-  package: name={{ item }} state=present
-  with_items:
-    - libmysqlclient-dev
-    - python-mysqldb
-    - mysql-server
-    - mysql-client
-
-- name: Copy my.cnf global MySQL configuration.
-  template:
-    src: my.cnf.j2
-    dest: "{{ mysql_config_path }}"
-    owner: root
-    group: root
-    mode: 0644
-    force: "{{ overwrite_global_mycnf }}"
-  notify: restart mysql
+# Including Install
+- include: install.yml
+- include: configure.yml

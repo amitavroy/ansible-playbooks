@@ -1,0 +1,9 @@
+---
+# Installing Mysql 
+- name: DATABASE | Install database packages
+  package: name={{ item }} state=present
+  with_items:
+    - libmysqlclient-dev
+    - python-mysqldb
+    - mysql-server
+    - mysql-client
