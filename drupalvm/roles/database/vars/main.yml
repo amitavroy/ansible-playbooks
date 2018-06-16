@@ -1,7 +1,18 @@
 ---
+# paths and generation
+mysql_config_path: "/etc/mysql/my.cnf"
+overwrite_global_mycnf: yes
+
+# config level variables
+mysql_port: "3306"
+
+# Log file settings.
+mysql_log_file_group: mysql
+
 mysql_user_name: lasalle
 mysql_user_password: L@ssalle2018
 mysql_root_username: root
 mysql_root_password: MySQL
+mysql_user_home: /root
 mysql_packages:
   - mysql-server
